@@ -1,5 +1,4 @@
 import static org.junit.jupiter.api.Assertions.*;
- 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
  
@@ -14,7 +13,8 @@ class TestSort {
 		a= new String[][] {{""},{"A"},{"B"},{"C"},{"D"}};
 		b= new String[][] {{"A","A"},{"A","B"},{"B","C"},{"C","D"},{"D","A"},{"C","A"}};
 		c= new String[][] {{"A","B","C"},{"B","A","C"},{"D","C","B"},{"C","D","B"}};
-		d= new String[][] {{"A","B","C","D"},{"B","B","A","C"},{"D","C","B","A"},{"A","C","B","D"}};
+		d= new String[][] {{"A","B","C","D"},{"B","B","A","C"},
+{"D","C","B","A"},{"A","C","B","D"}};
 	}
 		
 	@Test
@@ -52,11 +52,11 @@ class TestSort {
 	void isWellSorted_2ElementArray_ReturnsTrue() {
 		assertTrue(Sort.isWellSorted(b[0]));
 		assertTrue(Sort.isWellSorted(b[1]));
-		assertTrue(Sort.isWellSorted(b[2]));
-		assertTrue(Sort.isWellSorted(b[3]));
 	}
 	
 	void isWellSorted_2ElementArray_ReturnsFalse() {
+		assertFalse(Sort.isWellSorted(b[2]));
+		assertFalse(Sort.isWellSorted(b[3]));
 		assertFalse(Sort.isWellSorted(b[4]));
 		assertFalse(Sort.isWellSorted(b[5]));		
 	}
@@ -80,7 +80,5 @@ class TestSort {
 	void isWellSorted_4ElementArray_ReturnsFalse() {
 		assertFalse(Sort.isWellSorted(d[2]));
 		assertFalse(Sort.isWellSorted(d[3]));	
-		
 	}
- 
 }
